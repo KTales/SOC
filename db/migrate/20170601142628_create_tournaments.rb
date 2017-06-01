@@ -3,7 +3,7 @@ class CreateTournaments < ActiveRecord::Migration
     create_table :tournaments do |t|
       t.string :name
       t.integer :status
-      t.integer :type
+      t.string :style
 
       t.timestamps null: false
     end

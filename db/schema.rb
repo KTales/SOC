@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601142940) do
+ActiveRecord::Schema.define(version: 20170601153655) do
 
   create_table "players", force: :cascade do |t|
     t.integer  "tournament_id"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20170601142940) do
   create_table "tournaments", force: :cascade do |t|
     t.string   "name"
     t.integer  "status"
-    t.integer  "type"
+    t.string   "style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "owner_id"
   end
 
 end
