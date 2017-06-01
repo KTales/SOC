@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20170601153655) do
     t.string   "style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "owner_id"
+    t.text     "owner"
   end
 
 end
