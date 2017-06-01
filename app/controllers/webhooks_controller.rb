@@ -8,9 +8,6 @@ class WebhooksController < ApplicationController
                                   name: params_list[0],
                                   style: params_list[1])
 
-    return {
-      response_type: 'in_channel',
-      text: "#{new_tourn.name} Created!"
-    }.to_json
+    render json: new_tourn.name
   end
 end
