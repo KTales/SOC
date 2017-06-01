@@ -10,6 +10,8 @@ class WebhooksController < ApplicationController
       data = params.as_json
     end
 
+    
+
     render nothing: true
   end
 end
