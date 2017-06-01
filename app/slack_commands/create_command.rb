@@ -1,10 +1,10 @@
 class CreateCommand < CommandsController
 
-  def add(params, owner)
+  def add(params)
     parts = params[:text].split(' ')
 
     if parts[1] == 'elim' || parts[1] == 'rr'
-      new_tourn = Tournament.build(owner: owner,
+      new_tourn = Tournament.build(owner: params[:user_name],
                                    name: parts[0],
                                    style: parts[1])
       if new_tourn.save!

@@ -1,7 +1,6 @@
 class CommandsController < ApplicationController
   def index
     begin
-      byebug
       render json: 'working'
       cmd = params[:command].gsub('/', '')
       command = SlackCommand.find_by_command(cmd)
