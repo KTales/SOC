@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  post '/:newtournament' => 'webhooks#new_tournament', as: :create_tournament
+resources :commands, only: :index
   # post '/reading', to: 'keg_readings#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
