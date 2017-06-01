@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tournament_id: 
+  tournament: MyString
+  name: MyString
+  slack_id: MyString
+  wins: 
+  losses: 
+  total_score: 
+
+two:
+  tournament_id: 
+  tournament: MyString
+  name: MyString
+  slack_id: MyString
+  wins: 
+  losses: 
+  total_score: 
