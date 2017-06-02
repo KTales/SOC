@@ -1,4 +1,7 @@
 class Tournament < ActiveRecord::Base
+  has_many :players, dependent: :destroy
+  has_many :matches, dependent: :destroy
+
   enum statuses: %i[
     joinable
     started

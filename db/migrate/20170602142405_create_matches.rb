@@ -2,7 +2,6 @@ class CreateMatches < ActiveRecord::Migration
   def change
     create_table :matches do |t|
       t.references :tournament, index: true, foreign_key: true
-      t.string :tournament
       t.string :player1
       t.string :player2
       t.boolean :complete

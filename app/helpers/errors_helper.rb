@@ -11,8 +11,8 @@ module ErrorsHelper
     ':no_entry_sign: Invalid command. New commands must be added by an admin.'
   end
 
-  def self.blank_params
-    ':warning: You forgot to include some parameters! Refer to the slash command help text.'
+  def self.already_started
+    ':no_good: This tournament is already started!'
   end
 
   def self.managers_only
