@@ -7,10 +7,8 @@ class DeleteCommand < CommandsController
     # Delete depedencies - matches and users
 
     if tournament = Tournament.find_by(id: tournament_id)
-      players = Player.where(tournament_id: tournament_id)
-      matches = Match.where(tournament_id: tournament_id)
-      if tournament.destroy && players.destroy_all && matches.destroy_all
-        render_to_user('Tournament deleted.')
+      if tournament.destroy
+        render_to_user("Deleted tournament with Name: '#{tournament.name}' and ID: #{tournament.id}")
       else
         render_to_user(ErrorsHelper.delete_error)
       end
