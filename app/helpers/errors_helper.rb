@@ -26,4 +26,8 @@ module ErrorsHelper
   def self.user_not_found
     ':thinking_face: Turns out that user doesn\'t exist...'
   end
+
+  def self.delete_error
+    ':scream: Looks like we were unable to delete your submission!'
+  end
 end
