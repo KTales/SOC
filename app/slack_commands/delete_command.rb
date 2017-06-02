@@ -1,12 +1,13 @@
 class DeleteCommand < CommandsController
 
   def delete(params)
-    tournament_id = params[:text].split(' ').first
-
+    (byebug)
+    tournament_id = params[:text]
+    tournament = Tournament.find_by(id: tournament_id)
     # Delete a tournament
     # Delete depedencies - matches and users
-
-    if tournament = Tournament.find_by(id: tournament_id)
+    # render_to_user(ErrorsHelper.managers_only) if tournament.owner != params[:user_name]
+    if tournament
       if tournament.destroy
         render_to_user("Deleted tournament with Name: '#{tournament.name}' and ID: #{tournament.id}")
       else
