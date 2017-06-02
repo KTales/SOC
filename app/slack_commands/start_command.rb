@@ -4,16 +4,19 @@ class StartCommand < CommandsController
     tournament = Tournament.find_by(id: params[:text].to_i)
 
     if tournament
+      render_to_user(ErrorsHelper.already_started) if tournament.status != 0
       render_to_user(ErrorsHelper.managers_only) if tournament.owner != params[:user_name]
-      @competitors = Player.all.where(tournament: tournament.id).pluck(:id, :name,).to_a
-      byebug
+      @competitors = Player.all.where(tournament: tournament.id).pluck(:name).to_a
       matches = pool_matches
 
-      byebug
       matches.each do |match|
-        byebug
-        # Match.create(tournament_id: tournament.id, player1: )
+        Match.create(tournament_id: params[:text].to_i,
+                     player1: match.first,
+                     player2: match.second,
+                     complete: match.first == 'bye' || match.second == 'bye',
+                     winner: match.first == 'bye' ? match.second : match.second == 'bye' ? match.first : nil )
       end
+      tournament.status = 1
     else
       render_to_user(ErrorsHelper.tournament_not_found)
     end
@@ -21,7 +24,7 @@ class StartCommand < CommandsController
 
   def pool_matches(random = false)
     if @competitors.length.odd?
-      @competitors.unshift([nil, 'bye'])
+      @competitors.unshift('bye')
     end
     if random
       @competitors.shuffle!
