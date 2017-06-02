@@ -23,7 +23,7 @@ module ErrorsHelper
     ':scream: Uh oh! Looks like we were unable to save your submission (sometimes servers get sleepy too).'
   end
 
-  def self.user_not_found
-    ':thinking_face: Turns out that user doesn\'t exist...'
+  def self.tournament_not_found
+    ':thinking_face: Turns out that tournament doesn\'t exist...'
   end
 end
